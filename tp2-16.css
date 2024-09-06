@@ -1,0 +1,117 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Variáveis para esquemas de cores */
+:root {
+    --background-color-light: #ffffff;
+    --text-color-light: #000000;
+    --background-color-dark: #181818;
+    --text-color-dark: #ffffff;
+}
+
+body.light {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+}
+
+body.dark {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+}
+
+header {
+    background-color: #333;
+    padding: 1rem;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+#menu li {
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilos Mobile-first */
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.video-highlight {
+    margin-bottom: 1.5rem;
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.video-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.related-videos ul,
+.comments ul {
+    list-style: none;
+    padding: 0;
+}
+
+.related-videos li,
+.comments li {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para telas maiores */
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .video-highlight {
+        flex: 2;
+    }
+
+    .ads {
+        flex: 1;
+        display: block;
+    }
+
+    .related-videos,
+    .comments {
+        flex: 1;
+    }
+
+    #menu {
+        justify-content: flex-end;
+    }
+}
+
+/* Estilos para o menu expansível em telas pequenas */
+@media (max-width: 600px) {
+    #menu {
+        flex-direction: column;
+        display: none;
+    }
+
+    #menu.expanded {
+        display: flex;
+    }
+}
